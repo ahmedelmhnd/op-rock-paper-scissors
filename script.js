@@ -78,7 +78,7 @@ function playGame()
         console.log("You " + currentResult + " this round, the score is " + pScore + " vs. " + cScore);
     }
 
-    if (pScore = 3) 
+    if (pScore == 3) 
     {
         console.log("Congratulations!!! You Won")   
     }else
