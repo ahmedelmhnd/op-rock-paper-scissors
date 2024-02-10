@@ -1,4 +1,13 @@
-playGame();
+const rock = document.querySelector(".rock");
+const paper = document.querySelector("paper");
+const scissors = document.querySelector("scissors");
+const result = document.querySelector(".results");
+
+rock.addEventListener("click", () => 
+{
+    result.textContent = playRound("rock", getComputerChoice());
+});
+
 
 
 
