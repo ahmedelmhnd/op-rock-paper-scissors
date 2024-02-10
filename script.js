@@ -1,11 +1,21 @@
-const rock = document.querySelector(".rock");
-const paper = document.querySelector("paper");
-const scissors = document.querySelector("scissors");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 const result = document.querySelector(".results");
 
 rock.addEventListener("click", () => 
 {
     result.textContent = playRound("rock", getComputerChoice());
+});
+
+paper.addEventListener("click", () => 
+{
+    result.textContent = playRound("paper", getComputerChoice());
+});
+
+scissors.addEventListener("click", () => 
+{
+    result.textContent = playRound("scissors", getComputerChoice());
 });
 
 

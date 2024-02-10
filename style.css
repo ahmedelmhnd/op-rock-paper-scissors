@@ -1,0 +1,46 @@
+h1 {
+    color: aliceblue;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 1000;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.results {
+    color: aliceblue;
+    text-align: center;
+    font-size: larger;
+    font-weight: 600;
+    margin: 50px;
+}
+
+body {
+    background-color: rgb(6, 0, 39);
+}
+
+img
+{
+    width: 150px;
+    height: auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 100px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border: solid 4px white;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: goldenrod;
+}
