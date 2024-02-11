@@ -1,3 +1,11 @@
+let pScore = 0;
+let cScore = 0;
+let currentResult;
+let cChoice;
+
+const buttons = document.querySelector(".button-container")
+
+const title = document.querySelector("h1");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
@@ -5,17 +13,77 @@ const result = document.querySelector(".results");
 
 rock.addEventListener("click", () => 
 {
-    result.textContent = playRound("rock", getComputerChoice());
+    cChoice = getComputerChoice();
+    currentResult = playRound("rock", cChoice);
+    
+    switch (currentResult) 
+    {
+        case "won":
+        pScore++;
+        break;
+
+        case "lost":
+            cScore++;
+        break;
+        
+        default:
+            
+        break;
+    }
+
+        result.textContent = "rock vs. " + cChoice +"! You " + currentResult + " this round, the score is " + pScore + " vs. " + cScore;
+
+        gameOver(pScore, cScore);
 });
 
 paper.addEventListener("click", () => 
 {
-    result.textContent = playRound("paper", getComputerChoice());
+    cChoice = getComputerChoice();
+    currentResult = playRound("paper", cChoice);
+
+    switch (currentResult) 
+    {
+        case "won":
+        pScore++;
+        break;
+
+        case "lost":
+            cScore++;
+        break;
+        
+        default:
+            
+        break;
+    }
+
+        result.textContent = "paper vs. " + cChoice +"! You " + currentResult + " this round, the score is " + pScore + " vs. " + cScore;
+        
+        gameOver(pScore, cScore);
 });
 
 scissors.addEventListener("click", () => 
 {
-    result.textContent = playRound("scissors", getComputerChoice());
+    cChoice = getComputerChoice();
+    currentResult = playRound("scissors", cChoice);
+
+    switch (currentResult) 
+    {
+        case "won":
+        pScore++;
+        break;
+
+        case "lost":
+            cScore++;
+        break;
+        
+        default:
+            
+        break;
+    }
+
+        result.textContent = "scissors vs. " + cChoice +"! You " + currentResult + " this round, the score is " + pScore + " vs. " + cScore;
+
+        gameOver(pScore, cScore);
 });
 
 
@@ -46,11 +114,6 @@ function getComputerChoice()
     return choice.toLowerCase();
 }
 
-function getPlayerChoice() 
-{
-    let choice = prompt("Choose Rock, Paper or Scissors!");
-    return choice.toLocaleLowerCase();
-}
 
 function playRound(PlayerChoice, ComputerChoice)
 {
@@ -70,39 +133,22 @@ function playRound(PlayerChoice, ComputerChoice)
     return result;
 }
 
-function playGame() 
+
+    
+
+
+
+function gameOver(pScore, cScore) 
 {
-    let pScore = 0;
-    let cScore = 0;
-    let currentResult;
-
-    while ( (pScore < 3) & (cScore < 3) ) 
-    {
-        currentResult = playRound(getPlayerChoice(), getComputerChoice());
-        
-        switch (currentResult) 
-        {
-            case "won":
-                pScore++;
-            break;
-
-            case "lost":
-                cScore++;
-            break;
-        
-            default:
-            break;
-        }
-
-        console.log("You " + currentResult + " this round, the score is " + pScore + " vs. " + cScore);
-    }
-
     if (pScore == 3) 
     {
-        console.log("Congratulations!!! You Won")   
-    }else
+        title.textContent = "Congratulations!!! You Won";
+        buttons.remove();
+
+    }else if(cScore == 3)
     {
-        console.log("Unlucky.. You lost!")
+        title.textContent = "Unlucky.. You lost!";
+        buttons.remove();
     }
-    
 }
+
